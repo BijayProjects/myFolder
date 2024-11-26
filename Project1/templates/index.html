@@ -1,0 +1,454 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+  
+  
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="slider_bg_box">
+        {% comment %} <img class='bg_imgs' src="/static/images/bg.jpg" alt=""> {% endcomment %}
+      </div>
+
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-aos='fade-right'>
+        {% for hl in headline  %}
+        {% if forloop.first %}  
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      {{hl.title}}
+                    </h1>
+                    <p>
+                      {{hl.paragraph}}
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'contact' %} " class="btn1">
+                        Contact Us
+                      </a>
+                      <a href=" {% url 'about' %} " class="btn2">
+                        About Us 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+          
+        <div class="carousel-item">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="detail-box">
+                  <h1>
+                    {{hl.title}}
+                  </h1>
+                  <p>
+                    {{hl.paragraph}}
+                  </p>
+                  <div class="btn-box">
+                    <a href="{% url 'contact' %} " class="btn1">
+                      Contact Us
+                    </a>
+                    <a href=" {% url 'about' %} " class="btn2">
+                      About Us
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section">
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="box" data-aos='fade-right'>
+            <div class="img-box" data-aos='zoom-in'>
+              <img src="/static/images/delivery.png" alt="">
+              {% comment %} <i class="fa-solid fa-truck-fast fa-2xl"></i> {% endcomment %}
+            </div>
+            <div class="detail-box">
+              <h5>
+                Fast Delivery
+              </h5>
+              <p>
+                Your product will be delivered within 48 hours
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box " data-aos='fade-up'>
+            <div class="img-box" data-aos='zoom-in'>
+              <img src="/static/images/free-delivery.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Free Shiping
+              </h5>
+              <p>
+                Free shipping is available for select products!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box " data-aos='fade-up'>
+            <div class="img-box" data-aos='zoom-in'>
+              <img src="/static/images/quality.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Best Quality
+              </h5>
+              <p>
+                Our best quality products blend durability and elegance for lasting satisfaction.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box " data-aos='fade-left'>
+            <div class="img-box" data-aos='zoom-in'>
+              <img src="/static/images/customer.png" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                24x7 Customer support
+              </h5>
+              <p>
+                If the product is defective, please reach out to Customer Support for help.<br>
+                +977 01234567890 | +17 123456
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      
+      {% for ab in about %}
+          
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img_container">
+            <div class="img-box b1" data-aos = 'fade-down'>
+              <img src="/static/images/a-1.jpg" alt="">
+            </div>
+            <div class="img-box b2" data-aos = 'fade-up'>
+              <img src="/static/images/a-2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box" data-aos= 'fade-left'>
+            <h2>
+              About Our Shop
+            </h2>
+            <p>
+              {{ab.About_me}}
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- end about section -->
+
+
+  <!-- product section -->
+
+  <section class="product_section ">
+    <div class="container">
+      <div class="product_heading" data-aos = 'fade-right'>
+        <h2>
+          Top Sale Watches
+        </h2>
+      </div>
+      <div class="product_container">
+        
+        {% for pd in products %}
+          
+        <div class="box" data-aos = 'fade-up'>
+          <div class="box-content" data-aos='zoom-in'>
+            <div class="img-box">
+              <img src="{{pd.image_product.url}}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <h6>
+                  {{pd.product_name}}
+                </h6>
+                <h5>
+                  <span>$</span> {{pd.price}}
+                </h5>
+              </div>
+              <div class="like">
+                <h6>
+                  Like
+                </h6>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end product section -->
+  <!-- contact section -->
+  <section class="contact_section layout_padding" id="contact-feed">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Contact Us
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6" data-aos= 'fade-right'>
+          <div class="form_container">
+            <form action="{% url 'feedbacks' %}" method="POST" >
+              {% csrf_token %}
+              <div>
+                <input type="text" name="your_name" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" name="phone" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" name="feedback" class="message-box" placeholder="Message" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6 " data-aos='fade-left'>
+          <div class="map_container">
+            <div class="map">
+              <div id="">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d56535.50301799066!2d85.2676610081369!3d27.671897773273074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!3e6!4m3!3m2!1d27.6718557!2d85.3087766!4m4!2s27.6718557%2C%2085.3087766!3m2!1d27.6718557!2d85.3087766!5e0!3m2!1sen!2snp!4v1729769812478!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+
+  <!-- client section -->
+  <section class="client_section layout_padding-bottom" data-aos = 'fade-up'>
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Testimonial
+        </h2>
+      </div>
+    </div>
+    <div id="customCarousel2" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="/static/images/client.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <div class="client_info">
+                      <div class="client_name">
+                        <h5>
+                          Morojink
+                        </h5>
+                        <h6>
+                          Customer
+                        </h6>
+                      </div>
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum
+                      dolore eu fugia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="/static/images/client.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <div class="client_info">
+                      <div class="client_name">
+                        <h5>
+                          Morojink
+                        </h5>
+                        <h6>
+                          Customer
+                        </h6>
+                      </div>
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum
+                      dolore eu fugia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="/static/images/client.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <div class="client_info">
+                      <div class="client_name">
+                        <h5>
+                          Morojink
+                        </h5>
+                        <h6>
+                          Customer
+                        </h6>
+                      </div>
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum
+                      dolore eu fugia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="/static/images/client.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <div class="client_info">
+                      <div class="client_name">
+                        <h5>
+                          Morojink
+                        </h5>
+                        <h6>
+                          Customer
+                        </h6>
+                      </div>
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                      cillum
+                      dolore eu fugia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#customCarousel2" data-slide-to="0" class="active"></li>
+        <li data-target="#customCarousel2" data-slide-to="1"></li>
+        <li data-target="#customCarousel2" data-slide-to="2"></li>
+        <li data-target="#customCarousel2" data-slide-to="3"></li>
+      </ol>
+    </div>
+  </section>
+  <!-- end client section -->
+{% endblock %}
+
+  <!-- info section -->

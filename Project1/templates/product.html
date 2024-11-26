@@ -1,0 +1,60 @@
+{% extends 'partials/base.html' %}
+
+
+{% block content %}
+
+  <!-- product section -->
+
+  <section class="product_section">
+    <div class="container">
+      <div class="product_heading" data-aos='fade-right'>
+        <h2>
+          Top Sale Watches
+        </h2>
+      </div>
+      <div class="product_container">
+        
+        {% for pd in products %}  
+        <div class="box" data-aos='fade-up'>
+          <div class="box-content" data-aos='zoom-in'>
+            <div class="img-box">
+              <img src="{{pd.image_product.url}}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <h6>
+                  {{pd.product_name}}
+                </h6>
+                <h5>
+                  <span>$</span> {{pd.price}}
+                </h5>
+              </div>
+              <div class="like">
+                <h6>
+                  Like
+                </h6>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- end product section -->
+
+  {% endblock content %}

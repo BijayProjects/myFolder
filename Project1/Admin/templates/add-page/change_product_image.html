@@ -1,0 +1,35 @@
+{% extends 'partials/base_admin.html' %}
+{% block content %}
+
+        <!-- Container Fluid-->
+        <div class="container-fluid mb-5" id="container-wrapper">
+          
+          <div class="row">
+            <!-- Alerts Basic -->
+            <div class="col-lg-12">
+              <div class="card shadow-sm mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <a class="btn btn-primary" href="{% url 'view_products' %}" role="button"><i class="fa-solid fa-arrow-left"></i></a>
+                  <h3 class="m-0 font-weight-bold text-primary">Change Image</h3>
+                </div>
+                <div class="card-body" >
+                    <form action="{% url 'change_product_images' img_id.id %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                        <div class="mb-3">
+                          <label  class="form-label">Old Image:</label><br>
+                          <img src="{{img_id.image_product.url}}" alt=".." width='300' height ='300'><br>
+                          <label  class="form-label">Select New Image:</label>
+                          <input type="file" name = 'images' class="form-control"><br><br>
+                          <button type='submit' class='btn btn-info' >Change Image</button>
+                        </div>
+                    </form>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+  
+{% endblock content %}
+  

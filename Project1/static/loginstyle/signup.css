@@ -1,0 +1,25 @@
+.form-control1{
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 4%;
+}
+
+.form{
+  background: #fafafa !important;
+  width: 50%;
+  padding: 3%;
+}
+
+.form-label{
+  text-align: left !important;
+}
+
+.form-control{
+  padding: 2% !important;
+  border-left: 1px solid #023dff !important;
+}
+.form-control::placeholder{
+  color: #023dff57 !important;
+
+}

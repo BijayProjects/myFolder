@@ -1,0 +1,43 @@
+{% extends 'partials/base.html' %}
+  <!-- about section -->
+
+{% block content %}
+  
+
+  
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      
+      {% for ab in about %}
+  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img_container">
+            <div class="img-box b1" data-aos='fade-down'>
+              <img src="/static/images/a-1.jpg" alt="">
+            </div>
+            <div class="img-box b2" data-aos='fade-up'>
+              <img src="/static/images/a-2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos='fade-left'>
+          <div class="detail-box">
+            <h2>
+              About Our Shop
+            </h2>
+            <p>
+              {{ab.About_me}}
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- end info_section -->
+  {% endblock content %}

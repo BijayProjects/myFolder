@@ -1,0 +1,77 @@
+{% extends 'partials/base_admin.html' %}
+
+{% block content %}
+  <!-- Topbar -->
+  <!-- Container Fluid-->
+  <div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">OrderTables</h1>
+
+    </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Datatables -->
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">OrderTables</h6>
+          </div>
+          <div class="table-responsive p-2">
+            <table class="table align-items-center table-flush " id="dataTable">
+              <thead class="thead-light">
+                <tr>
+                  <th>Name</th>
+                  <th>Product Img</th>
+                  <th>Item</th>
+                  <th>Address</th>
+                  <th>Status</th>
+                  <th>Prices</th>
+                  <th>Order Date</th>
+                  <th>Phone No</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Product Img</th>
+                  <th>Item</th>
+                  <th>Address</th>
+                  <th>Statuc</th>
+                  <th>Total Price</th>
+                  <th>Start date</th>
+                  <th>Phone No</th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for od in orders %}
+                <tr>
+                  <td> {{od.recipient}} </td>
+                  <td> {{od.product_image}} </td>
+                  <td> {{od.product_name}} </td>
+                  <td> {{od.address}} </td>
+                  <td>Pending</td>
+                  <td>NRs. {{od.price}} </td>
+                  <td> {{od.order_creation_date}} </td>
+                  <td> {{od.phone_number}} </td>
+                  <td>
+                    <a href="">
+                      <button type="button" class="btn btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></button>
+                    </a>
+                    <a href="">
+                      <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+
+{% endblock content %}
+        

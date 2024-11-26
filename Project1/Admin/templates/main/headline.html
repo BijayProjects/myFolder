@@ -1,0 +1,68 @@
+{% extends 'partials/base_admin.html' %}
+{% block content %}
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+          
+          <div class="row">
+            <!-- Alerts Basic -->
+            <div class="col-lg-12">
+              <div class="card shadow-sm mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Head Lines</h6>
+                  <a href=" {% url 'add_headline' %} ">
+                    <i class="fa-solid fa-plus fa-2x" style='color:black;'></i>
+                  </a>
+                </div>
+                <div class="card-body">
+                  {% if messages %}
+                        
+                        {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>{{message}}</strong>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                          
+                      {% endif %}
+                    <table class="table align-items-center table-flush " id="dataTable">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>Title</th>
+                          <th>Body</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Title</th>
+                          <th>Body</th>
+                          <th>Action</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        {% for st in title %}
+                        <tr>
+                          <td>{{st.title}} </td>
+                          <td> {{st.paragraph}} </td>
+                          <td>
+                            <a href="{% url 'edit_headline' st.id %}">
+                              <button type="button" class="btn btn-outline-success"><i class="fa-regular fa-pen-to-square"></i></button>
+                            </a>
+                            <a href="{% url 'delete_headline' st.id %}">
+                              <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                            </a>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+  
+{% endblock content %}
+  

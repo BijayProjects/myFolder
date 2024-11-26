@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/app1/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+
+    
+    {% for key, value in  student.items %}
+        {{key}} - {{value}} <br>
+        {% for k,v in value.items %}
+            {{forloop.counter}} {{k}}-{{v}} <br>
+        {% endfor %}
+            
+    {% endfor %}
+        
+    <code>print('Hello worl')</code>
+</body>
+</html>
